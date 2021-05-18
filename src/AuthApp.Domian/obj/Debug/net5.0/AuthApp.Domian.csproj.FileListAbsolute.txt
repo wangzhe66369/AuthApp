@@ -1,0 +1,11 @@
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\bin\Debug\net5.0\AuthApp.Domian.deps.json
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\bin\Debug\net5.0\AuthApp.Domian.dll
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\bin\Debug\net5.0\ref\AuthApp.Domian.dll
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\bin\Debug\net5.0\AuthApp.Domian.pdb
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\AuthApp.Domian.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\AuthApp.Domian.AssemblyInfoInputs.cache
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\AuthApp.Domian.AssemblyInfo.cs
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\AuthApp.Domian.csproj.CoreCompileInputs.cache
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\AuthApp.Domian.dll
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\ref\AuthApp.Domian.dll
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Domian\obj\Debug\net5.0\AuthApp.Domian.pdb

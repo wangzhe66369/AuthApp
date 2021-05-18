@@ -1,0 +1,8 @@
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\bin\Debug\netcoreapp3.1\AuthApp.Application.deps.json
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\bin\Debug\netcoreapp3.1\AuthApp.Application.dll
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\bin\Debug\netcoreapp3.1\AuthApp.Application.pdb
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\obj\Debug\netcoreapp3.1\AuthApp.Application.AssemblyInfoInputs.cache
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\obj\Debug\netcoreapp3.1\AuthApp.Application.AssemblyInfo.cs
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\obj\Debug\netcoreapp3.1\AuthApp.Application.csproj.CoreCompileInputs.cache
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\obj\Debug\netcoreapp3.1\AuthApp.Application.dll
+D:\MyWorkProject\cnbogs\AuthApp\src\AuthApp.Application\obj\Debug\netcoreapp3.1\AuthApp.Application.pdb
