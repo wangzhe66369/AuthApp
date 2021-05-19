@@ -1,4 +1,8 @@
-﻿using AuthApp.Domian;
+﻿using AuthApp.Authorization.Roles;
+using AuthApp.Domian;
+using AuthApp.MessageDtos;
+using AuthApp.Roles;
+using AuthApp.Roles.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,14 +16,22 @@ namespace AuthApp.Web.Host.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RolesController : ControllerBase
+    public class RoleController : ControllerBase
     {
 
-        private readonly RoleManager<Role> _ruleManager;
-        public RolesController(RoleManager<Role> ruleManager)
+        private readonly IRoleService _iRoleService;
+        public RoleController(IRoleService iRoleService)
         {
-            _ruleManager = ruleManager;
+            _iRoleService = iRoleService;
         }
+
+
+        public async Task<MessageDto<RoleDto>> CreateAsync([FromBody] CreateRoleDto input)
+        {
+            return await _iRoleService.CreateAsync(input);
+        }
+
+
         // GET: api/<RolesController>
         [HttpGet]
         public IEnumerable<string> Get()

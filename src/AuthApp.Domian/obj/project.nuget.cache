@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "odHY6X7AMvB+6HqrkEElMss3chNce+BwXj30ZBUraIok9j8ZSJnjq5ZmzGfDECxax6lSJa1tXcPlT/6yQK6lEA==",
+  "dgSpecHash": "Mb1yMYAkdTfakT4zVXcS9AsQTC1nFJHsFVwcc3VVRqNkgTt9VVYhC2D65YPYrXoJL9ItLRoWzxtPESaOq41f8g==",
   "success": true,
-  "projectFilePath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj",
+  "projectFilePath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wangzhe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.5\\microsoft.aspnetcore.cryptography.internal.5.0.5.nupkg.sha512",
     "C:\\Users\\wangzhe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.5\\microsoft.aspnetcore.cryptography.keyderivation.5.0.5.nupkg.sha512",

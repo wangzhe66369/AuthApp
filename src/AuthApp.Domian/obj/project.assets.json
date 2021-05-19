@@ -684,11 +684,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj",
+      "projectUniqueName": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj",
       "projectName": "AuthApp.Domian",
-      "projectPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj",
+      "projectPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj",
       "packagesPath": "C:\\Users\\wangzhe\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Domian\\obj\\",
+      "outputPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Domian\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

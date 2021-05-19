@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aWvnYTzhfyYaeucmzABSCT7D3RoMo5/ylCxr0Wtte4gHBznLSoOHAIHMDh7Z1HffZVCKV+RdN6Tnj4pDm6XCPQ==",
+  "dgSpecHash": "NGKHUn8NgzYml7e8HVgZ32e1C8J5WmLIMdxzd2+GKzjx/t+s6ivkadEswoUUmerZ/fbZjRdLQ+XNXJjBhoS7HQ==",
   "success": true,
-  "projectFilePath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Web.Host\\AuthApp.Web.Host.csproj",
+  "projectFilePath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Web.Host\\AuthApp.Web.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wangzhe\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\wangzhe\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",

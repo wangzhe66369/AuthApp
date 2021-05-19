@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace AuthApp.Domian
+namespace AuthApp.Authorization.Users
 {
     public class User : IdentityUser
     {
@@ -9,7 +9,4 @@ namespace AuthApp.Domian
         public DateTimeOffset BirthDate { get; set; }
     }
 
-    public class Role : IdentityRole
-    {
-    }
 }

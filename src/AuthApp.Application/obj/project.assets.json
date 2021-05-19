@@ -297,6 +297,16 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+      "AuthApp.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/AuthApp.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AuthApp.Common.dll": {}
+        }
+      },
       "AuthApp.Domian/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -880,6 +890,11 @@
         "version.txt"
       ]
     },
+    "AuthApp.Common/1.0.0": {
+      "type": "project",
+      "path": "../AuthApp.Common/AuthApp.Common.csproj",
+      "msbuildProject": "../AuthApp.Common/AuthApp.Common.csproj"
+    },
     "AuthApp.Domian/1.0.0": {
       "type": "project",
       "path": "../AuthApp.Domian/AuthApp.Domian.csproj",
@@ -888,6 +903,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "AuthApp.Common >= 1.0.0",
       "AuthApp.Domian >= 1.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1"
     ]
@@ -899,11 +915,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Application\\AuthApp.Application.csproj",
+      "projectUniqueName": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Application\\AuthApp.Application.csproj",
       "projectName": "AuthApp.Application",
-      "projectPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Application\\AuthApp.Application.csproj",
+      "projectPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Application\\AuthApp.Application.csproj",
       "packagesPath": "C:\\Users\\wangzhe\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Application\\obj\\",
+      "outputPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -923,8 +939,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj": {
-              "projectPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj"
+            "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Common\\AuthApp.Common.csproj": {
+              "projectPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Common\\AuthApp.Common.csproj"
+            },
+            "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj": {
+              "projectPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Domian\\AuthApp.Domian.csproj"
             }
           }
         }

@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AuthApp.Common\AuthApp.Common.csproj" />
     <ProjectReference Include="..\AuthApp.Domian\AuthApp.Domian.csproj" />
   </ItemGroup>
 

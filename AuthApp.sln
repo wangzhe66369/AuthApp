@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D5DEA45-C54
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.Domian", "src\AuthApp.Domian\AuthApp.Domian.csproj", "{66D95319-23BD-4DDF-9769-8C285FE14DC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthApp.Common", "src\AuthApp.Common\AuthApp.Common.csproj", "{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{66D95319-23BD-4DDF-9769-8C285FE14DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D95319-23BD-4DDF-9769-8C285FE14DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D95319-23BD-4DDF-9769-8C285FE14DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{1AA4C6DA-9542-4ECD-85F9-5CDB21BB86D2} = {0D5DEA45-C54D-4141-A599-CB6A7321D46E}
 		{6659E8B0-FBBE-47A6-BE13-602FD41AA710} = {0D5DEA45-C54D-4141-A599-CB6A7321D46E}
 		{66D95319-23BD-4DDF-9769-8C285FE14DC3} = {0D5DEA45-C54D-4141-A599-CB6A7321D46E}
+		{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD} = {0D5DEA45-C54D-4141-A599-CB6A7321D46E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34981E13-D696-4460-ADB5-9E2ADA1E6074}

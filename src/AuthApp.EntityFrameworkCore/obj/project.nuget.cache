@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AvAf6Fi9QMZ9U4NjhOogi+bYj65NZghJl/beTr+He6RXShJm1SdR9Q5LcmXo8iRKT4eMNRBxGc9/Qv/im9z55g==",
+  "dgSpecHash": "xo6uF1RQ9kT8ny/ijQdWW/8Kr1gk52HBrRLadlzInxu+J6nOvbqXHiT+uOLqYdyT8UTJINGks31JDBppu93e9A==",
   "success": true,
-  "projectFilePath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.EntityFrameworkCore\\AuthApp.EntityFrameworkCore.csproj",
+  "projectFilePath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.EntityFrameworkCore\\AuthApp.EntityFrameworkCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wangzhe\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\wangzhe\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

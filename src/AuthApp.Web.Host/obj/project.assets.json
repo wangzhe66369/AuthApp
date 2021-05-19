@@ -1702,6 +1702,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "AuthApp.Common": "1.0.0",
           "AuthApp.Domian": "1.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1"
         },
@@ -1710,6 +1711,16 @@
         },
         "runtime": {
           "bin/placeholder/AuthApp.Application.dll": {}
+        }
+      },
+      "AuthApp.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/AuthApp.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AuthApp.Common.dll": {}
         }
       },
       "AuthApp.Domian/1.0.0": {
@@ -6141,6 +6152,11 @@
       "path": "../AuthApp.Application/AuthApp.Application.csproj",
       "msbuildProject": "../AuthApp.Application/AuthApp.Application.csproj"
     },
+    "AuthApp.Common/1.0.0": {
+      "type": "project",
+      "path": "../AuthApp.Common/AuthApp.Common.csproj",
+      "msbuildProject": "../AuthApp.Common/AuthApp.Common.csproj"
+    },
     "AuthApp.Domian/1.0.0": {
       "type": "project",
       "path": "../AuthApp.Domian/AuthApp.Domian.csproj",
@@ -6169,11 +6185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Web.Host\\AuthApp.Web.Host.csproj",
+      "projectUniqueName": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Web.Host\\AuthApp.Web.Host.csproj",
       "projectName": "AuthApp.Web.Host",
-      "projectPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Web.Host\\AuthApp.Web.Host.csproj",
+      "projectPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Web.Host\\AuthApp.Web.Host.csproj",
       "packagesPath": "C:\\Users\\wangzhe\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.Web.Host\\obj\\",
+      "outputPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.Web.Host\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6193,8 +6209,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.EntityFrameworkCore\\AuthApp.EntityFrameworkCore.csproj": {
-              "projectPath": "D:\\MyWorkProject\\cnbogs\\AuthApp\\src\\AuthApp.EntityFrameworkCore\\AuthApp.EntityFrameworkCore.csproj"
+            "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.EntityFrameworkCore\\AuthApp.EntityFrameworkCore.csproj": {
+              "projectPath": "D:\\MyWorkProject\\AuthApp\\src\\AuthApp.EntityFrameworkCore\\AuthApp.EntityFrameworkCore.csproj"
             }
           }
         }
