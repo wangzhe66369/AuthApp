@@ -1,4 +1,6 @@
-﻿using AuthApp.Authorizations;
+﻿using AuthApp.Authorization.Roles;
+using AuthApp.Authorization.Users;
+using AuthApp.Authorizations;
 using AuthApp.Configuration;
 using AuthApp.Domian;
 using Microsoft.AspNetCore.Identity;

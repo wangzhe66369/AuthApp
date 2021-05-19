@@ -30,6 +30,8 @@ using AuthApp.Domian;
 using Microsoft.AspNetCore.Identity;
 using AuthApp.CustomerMiddlewares;
 using AuthApp.Extensions;
+using AuthApp.Authorization.Users;
+using AuthApp.Authorization.Roles;
 
 namespace AuthApp
 {

@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using AuthApp.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using AuthApp.Authorization.Users;
+using AuthApp.Authorization.Roles;
 
 namespace AuthApp.EntityFrameworkCore
 {
