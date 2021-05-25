@@ -1,4 +1,5 @@
-﻿using AuthApp.Domian.IRepositories;
+﻿using AuthApp.Application.Common;
+using AuthApp.Domian.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,15 @@ namespace AuthApp.EntityFrameworkCore.Repositories
         public async Task<bool> IsExistAsync(TId id)
         {
             return await _dbContext.Set<T>().FindAsync(id) != null;
+        }
+
+        public  async Task<PagedList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize)
+        {
+            await GetByConditionAsync();
+            var totalCount = source.Count();
+            var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            var list = new PagedList<T>(items, totalCount, pageNumber, pageSize);
+            return await Task.FromResult(list);
         }
     }
 }

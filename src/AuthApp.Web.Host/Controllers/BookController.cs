@@ -18,18 +18,18 @@ namespace AuthApp.Web.Host.Controllers
     public class BookController : ControllerBase
     {
         private readonly IBookRepository _bookRepository;
+        private readonly IMapper _mapper;
         public BookController(IBookRepository bookRepository, IMapper mapper)
         {
             _bookRepository = bookRepository;
-            Mapper = mapper;
+            _mapper = mapper;
         }
 
-        public IMapper Mapper { get; }
 
         [HttpPost()]
         public async Task<IActionResult> AddBookAsync(Guid authorId, BookForCreationDto bookForCreationDto)
         {
-            var book = Mapper.Map<Book>(bookForCreationDto);
+            var book = _mapper.Map<Book>(bookForCreationDto);
 
             book.AuthorId = authorId;
             _bookRepository.Create(book);
@@ -38,9 +38,10 @@ namespace AuthApp.Web.Host.Controllers
                 throw new Exception("创建资源Book失败");
             }
 
-            var bookDto = Mapper.Map<BookDto>(book);
+            var bookDto = _mapper.Map<BookDto>(book);
             return CreatedAtRoute(nameof(GetBookAsync), new { bookId = bookDto.Id }, bookDto);
         }
+
 
         [HttpDelete("{bookId}")]
         public async Task<IActionResult> DeleteBookAsync(Guid authorId, Guid bookId)
@@ -68,7 +69,7 @@ namespace AuthApp.Web.Host.Controllers
                 return NotFound();
             }
 
-            var bookDto = Mapper.Map<BookDto>(book);
+            var bookDto = _mapper.Map<BookDto>(book);
 
             return bookDto;
         }
@@ -77,7 +78,7 @@ namespace AuthApp.Web.Host.Controllers
         public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksAsync(Guid authorId)
         {
             var books = await _bookRepository.GetBooksAsync(authorId);
-            var bookDtoList = Mapper.Map<IEnumerable<BookDto>>(books);
+            var bookDtoList = _mapper.Map<IEnumerable<BookDto>>(books);
 
             return bookDtoList.ToList();
         }
@@ -91,14 +92,14 @@ namespace AuthApp.Web.Host.Controllers
                 return NotFound();
             }
 
-            var bookUpdateDto = Mapper.Map<BookForUpdateDto>(book);
+            var bookUpdateDto = _mapper.Map<BookForUpdateDto>(book);
             patchDocument.ApplyTo(bookUpdateDto);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            Mapper.Map(bookUpdateDto, book, typeof(BookForUpdateDto), typeof(Book));
+            _mapper.Map(bookUpdateDto, book, typeof(BookForUpdateDto), typeof(Book));
 
             _bookRepository.Update(book);
             if (!await _bookRepository.SaveAsync())
@@ -117,7 +118,7 @@ namespace AuthApp.Web.Host.Controllers
                 return NotFound();
             }
 
-            Mapper.Map(updatedBook, book, typeof(BookForUpdateDto), typeof(Book));
+            _mapper.Map(updatedBook, book, typeof(BookForUpdateDto), typeof(Book));
             _bookRepository.Update(book);
             if (!await _bookRepository.SaveAsync())
             {

@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,14 +82,39 @@ namespace AuthApp.Web.Host.Controllers
             return authorDto;
         }
 
-        [HttpGet()]
-        public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthorsAsync()
+        [HttpGet(Name = nameof(GetAuthorsAsync))]
+        public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthorsAsync(
+            [FromQuery] AuthorResourceParameters parameters)
         {
-            var pp = HttpContext.User;
-            var authors = (await _authorRepository.GetAllAsync())
-                .OrderBy(author => author.Name);
-            
-            var authorDtoList = _mapper.Map<IEnumerable<AuthorDto>>(authors);
+            var pagedList = await _authorRepository.GetAllAsync(parameters);
+
+            var paginationMetadata = new
+            {
+                totalCount = pagedList.TotalCount,
+                pageSize = pagedList.PageSize,
+                currentPage = pagedList.CurrentPage,
+                totalPages = pagedList.TotalPages,
+                previousePageLink = pagedList.HasPrevious ? Url.Link(nameof(GetAuthorsAsync), new
+                {
+                    pageNumber = pagedList.CurrentPage - 1,
+                    pageSize = pagedList.PageSize,
+                    birthPlace = parameters.BirthPlace,
+                    serachQuery = parameters.SearchQuery,
+                    sortBy = parameters.SortBy,
+                }) : null,
+                nextPageLink = pagedList.HasNext ? Url.Link(nameof(GetAuthorsAsync), new
+                {
+                    pageNumber = pagedList.CurrentPage + 1,
+                    pageSize = pagedList.PageSize,
+                    birthPlace = parameters.BirthPlace,
+                    serachQuery = parameters.SearchQuery,
+                    sortBy = parameters.SortBy,
+                }) : null
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationMetadata));
+
+            var authorDtoList = _mapper.Map<IEnumerable<AuthorDto>>(pagedList);
             return authorDtoList.ToList();
         }
     }

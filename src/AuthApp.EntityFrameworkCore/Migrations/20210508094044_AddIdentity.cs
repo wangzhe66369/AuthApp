@@ -18,6 +18,7 @@ namespace AuthApp.EntityFrameworkCore.Migrations
                 },
                 constraints: table =>
                 {
+                    AspNetRoles
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
                 });
 
