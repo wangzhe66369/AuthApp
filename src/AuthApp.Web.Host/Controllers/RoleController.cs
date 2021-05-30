@@ -26,10 +26,10 @@ namespace AuthApp.Web.Host.Controllers
         }
 
 
-        public async Task<MessageDto<RoleDto>> CreateAsync([FromBody] CreateRoleDto input)
-        {
-            return await _iRoleService.CreateAsync(input);
-        }
+        //public async Task<MessageDto<RoleDto>> CreateAsync([FromBody] CreateRoleDto input)
+        //{
+        //    return await _iRoleService.CreateAsync(input);
+        //}
 
 
         // GET: api/<RolesController>

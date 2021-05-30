@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthApp.EntityFrameworkCore\AuthApp.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\AuthApp.Utility\AuthApp.Utility.csproj" />
   </ItemGroup>
 
 </Project>

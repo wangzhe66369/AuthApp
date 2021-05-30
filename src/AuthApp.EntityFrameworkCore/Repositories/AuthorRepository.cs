@@ -28,31 +28,32 @@ namespace AuthApp.EntityFrameworkCore.Repositories
 
         public Task<PagedList<Author>> GetAllAsync(AuthorResourceParameters parameters)
         {
-            IQueryable<Author> queryableAuthors = DbContext.Set<Author>();
+            //IQueryable<Author> queryableAuthors = DbContext.Set<Author>();
 
-            Expression<Func<Author, bool>> whereExpression = null;
-            if (!string.IsNullOrWhiteSpace(parameters.BirthPlace))
-            {
-                whereExpression.
-                queryableAuthors = queryableAuthors.Where(m => m.BirthPlace.ToLower() == parameters.BirthPlace);
-            }
+            //Expression<Func<Author, bool>> whereExpression = null;
+            //if (!string.IsNullOrWhiteSpace(parameters.BirthPlace))
+            //{
+            //    //whereExpression.
+            //    queryableAuthors = queryableAuthors.Where(m => m.BirthPlace.ToLower() == parameters.BirthPlace);
+            //}
 
-            if (!string.IsNullOrWhiteSpace(parameters.SearchQuery))
-            {
-                queryableAuthors = queryableAuthors.Where(
-                    m => m.BirthPlace.ToLower().Contains(parameters.SearchQuery.ToLower())
-                    || m.Name.ToLower().Contains(parameters.SearchQuery.ToLower()));
-            }
+            //if (!string.IsNullOrWhiteSpace(parameters.SearchQuery))
+            //{
+            //    queryableAuthors = queryableAuthors.Where(
+            //        m => m.BirthPlace.ToLower().Contains(parameters.SearchQuery.ToLower())
+            //        || m.Name.ToLower().Contains(parameters.SearchQuery.ToLower()));
+            //}
 
-            //return PagedList<Author>.Create(queryableAuthors, parameters.PageNumber, parameters.PageSize);
+            ////return PagedList<Author>.Create(queryableAuthors, parameters.PageNumber, parameters.PageSize);
 
-            //queryableAuthors = queryableAuthors.OrderBy(parameters.SortBy);
-            //return PagedList<Author>.Create(queryableAuthors, parameters.PageNumber, parameters.PageSize);
+            ////queryableAuthors = queryableAuthors.OrderBy(parameters.SortBy);
+            ////return PagedList<Author>.Create(queryableAuthors, parameters.PageNumber, parameters.PageSize);
 
-            var orderedAuthors = queryableAuthors.Sort(parameters.SortBy, mappingDict);
-            return PagedList<Author>.CreateAsync(orderedAuthors,
-                parameters.PageNumber,
-                parameters.PageSize);
+            //var orderedAuthors = queryableAuthors.Sort(parameters.SortBy, mappingDict);
+            //return PagedList<Author>.CreateAsync(orderedAuthors,
+            //    parameters.PageNumber,
+            //    parameters.PageSize);
+            return null; 
         }
 
        

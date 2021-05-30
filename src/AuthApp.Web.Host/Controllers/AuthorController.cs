@@ -1,4 +1,5 @@
-﻿using AuthApp.Authors;
+﻿using AuthApp.AuthorResource;
+using AuthApp.Authors;
 using AuthApp.Authors.Dto;
 using AuthApp.Configuration;
 using AuthApp.Domian;
@@ -86,36 +87,36 @@ namespace AuthApp.Web.Host.Controllers
         public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthorsAsync(
             [FromQuery] AuthorResourceParameters parameters)
         {
-            var pagedList = await _authorRepository.GetAllAsync(parameters);
+           //// var pagedList = await _authorRepository.GetAllAsync(parameters);
 
-            var paginationMetadata = new
-            {
-                totalCount = pagedList.TotalCount,
-                pageSize = pagedList.PageSize,
-                currentPage = pagedList.CurrentPage,
-                totalPages = pagedList.TotalPages,
-                previousePageLink = pagedList.HasPrevious ? Url.Link(nameof(GetAuthorsAsync), new
-                {
-                    pageNumber = pagedList.CurrentPage - 1,
-                    pageSize = pagedList.PageSize,
-                    birthPlace = parameters.BirthPlace,
-                    serachQuery = parameters.SearchQuery,
-                    sortBy = parameters.SortBy,
-                }) : null,
-                nextPageLink = pagedList.HasNext ? Url.Link(nameof(GetAuthorsAsync), new
-                {
-                    pageNumber = pagedList.CurrentPage + 1,
-                    pageSize = pagedList.PageSize,
-                    birthPlace = parameters.BirthPlace,
-                    serachQuery = parameters.SearchQuery,
-                    sortBy = parameters.SortBy,
-                }) : null
-            };
+           // var paginationMetadata = new
+           // {
+           //     totalCount = pagedList.TotalCount,
+           //     pageSize = pagedList.PageSize,
+           //     currentPage = pagedList.CurrentPage,
+           //     totalPages = pagedList.TotalPages,
+           //     previousePageLink = pagedList.HasPrevious ? Url.Link(nameof(GetAuthorsAsync), new
+           //     {
+           //         pageNumber = pagedList.CurrentPage - 1,
+           //         pageSize = pagedList.PageSize,
+           //         birthPlace = parameters.BirthPlace,
+           //         serachQuery = parameters.SearchQuery,
+           //         sortBy = parameters.SortBy,
+           //     }) : null,
+           //     nextPageLink = pagedList.HasNext ? Url.Link(nameof(GetAuthorsAsync), new
+           //     {
+           //         pageNumber = pagedList.CurrentPage + 1,
+           //         pageSize = pagedList.PageSize,
+           //         birthPlace = parameters.BirthPlace,
+           //         serachQuery = parameters.SearchQuery,
+           //         sortBy = parameters.SortBy,
+           //     }) : null
+           // };
 
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationMetadata));
+           // Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationMetadata));
 
-            var authorDtoList = _mapper.Map<IEnumerable<AuthorDto>>(pagedList);
-            return authorDtoList.ToList();
+           // var authorDtoList = _mapper.Map<IEnumerable<AuthorDto>>(pagedList);
+            return null;
         }
     }
 }

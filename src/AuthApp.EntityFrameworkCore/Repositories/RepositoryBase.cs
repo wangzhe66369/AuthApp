@@ -58,7 +58,7 @@ namespace AuthApp.EntityFrameworkCore.Repositories
 
         public  async Task<PagedList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize)
         {
-            await GetByConditionAsync();
+            //await GetByConditionAsync();
             var totalCount = source.Count();
             var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
             var list = new PagedList<T>(items, totalCount, pageNumber, pageSize);
