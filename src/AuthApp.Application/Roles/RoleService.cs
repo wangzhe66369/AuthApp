@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthApp.Authorization.Roles;
-using AuthApp.Common;
-using AuthApp.Common.Extensions;
 using AuthApp.Domian;
+using AuthApp.Identity.Roles;
 using AuthApp.MessageDtos;
 using AuthApp.Roles.Dto;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-
+using VCrisp.Extensions.BaseType;
 
 namespace AuthApp.Roles
 {
@@ -43,7 +41,7 @@ namespace AuthApp.Roles
             {
                 messageDto.response = _mapper.Map<RoleDto>(role);
                 messageDto.success = false;
-                messageDto.msg = result.Errors.Select((IdentityError err) => err.Description).JoinAsString(", ");
+                messageDto.msg = result.Errors.Select((IdentityError err) => err.Description).JoinAsString();
             }
 
             return messageDto;

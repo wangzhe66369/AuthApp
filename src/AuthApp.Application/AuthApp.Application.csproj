@@ -5,11 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Users\Dtos\UserOutputDto.cs~RF1cc0113f.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AuthApp.Common\AuthApp.Common.csproj" />
+    <ProjectReference Include="..\AuthApp.Common\VCrisp.csproj" />
     <ProjectReference Include="..\AuthApp.Domian\AuthApp.Domian.csproj" />
   </ItemGroup>
 

@@ -7,9 +7,9 @@ using AuthApp.Identity.Roles;
 
 namespace AuthApp.EntityFrameworkCore
 {
-    public class AppDbContext : IdentityDbContext<User, Role, int>
+    public class DbContextBase : IdentityDbContext<User, Role, int>
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public DbContextBase(DbContextOptions<DbContextBase> options) : base(options)
         {
         }
 

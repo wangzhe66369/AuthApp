@@ -4,8 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using VCrisp.Utilities.Filter;
 
-namespace AuthApp.Utility.PageHelper
+namespace VCrisp.Utilities.PageHelper
 {
 	/// <summary>
 	/// 分页排序助手类
@@ -50,6 +51,39 @@ namespace AuthApp.Utility.PageHelper
 				lambdaExpression
 			});
 			return (IOrderedQueryable<T>)obj;
+		}
+
+		public static PageResult<TResult> ToPage<TEntity, TResult>(this IQueryable<TEntity> source,
+		   Expression<Func<TEntity, bool>> predicate,
+		   PageCondition pageCondition,
+		   Expression<Func<TEntity, TResult>> selector)
+		{
+			//source.CheckNotNull("source");
+			//predicate.CheckNotNull("predicate");
+			//pageCondition.CheckNotNull("pageCondition");
+			//selector.CheckNotNull("selector");
+
+			return source.ToPage(predicate, pageCondition.Sidx, pageCondition.Sord, pageCondition.PageIndex, pageCondition.PageSize,selector);
+		}
+
+		public static PageResult<TResult> ToPage<TEntity, TResult>(this IQueryable<TEntity> source,
+			Expression<Func<TEntity, bool>> predicate,
+			string sidx, 
+			string sord,
+			int pageIndex,
+			int pageSize,
+			
+			Expression<Func<TEntity, TResult>> selector)
+		{
+			//source.CheckNotNull("source");
+			//predicate.CheckNotNull("predicate");
+			//pageIndex.CheckGreaterThan("pageIndex", 0);
+			//pageSize.CheckGreaterThan("pageSize", 0);
+			//selector.CheckNotNull("selector");
+
+			var total = source.Count(predicate);
+			TResult[] data = source.Where(predicate).GetQueryable(sidx, sord, pageIndex, pageSize).Select(selector).ToArray();
+			return new PageResult<TResult>(data, total) ;
 		}
 	}
 }

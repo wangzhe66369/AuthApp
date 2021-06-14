@@ -30,8 +30,8 @@ using AuthApp.Domian;
 using Microsoft.AspNetCore.Identity;
 using AuthApp.CustomerMiddlewares;
 using AuthApp.Extensions;
-using AuthApp.Authorization.Users;
-using AuthApp.Authorization.Roles;
+using AuthApp.Identity.Roles;
+using AuthApp.Identity.Users;
 
 namespace AuthApp
 {
@@ -53,8 +53,7 @@ namespace AuthApp
             //context 池
             services.AddDbContextPool<AppDbContext>(config =>
             {
-                config.UseSqlServer(Configuration.GetConnectionString(AuthAppConsts.ConnectionStringName),
-                optionBuilder=> optionBuilder.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name)
+                config.UseSqlServer(Configuration.GetConnectionString(AuthAppConsts.ConnectionStringName)
                 );
             });
 
@@ -75,8 +74,8 @@ namespace AuthApp
                 options.Password.RequireUppercase = false;
             });
             services.AddIdentity<User, Role>()//AddIdentity方法会向容器添加UserManager、RoleManager，以及它们所依赖的服务，
-                .AddErrorDescriber<CustomIdentityErrorDescriber>()
-                .AddEntityFrameworkStores<AppDbContext>();
+                .AddErrorDescriber<CustomIdentityErrorDescriber>();
+                //.AddEntityFrameworkStores<AppDbContext>();
 
             
             services.AddAuthentication_JWTSetup();

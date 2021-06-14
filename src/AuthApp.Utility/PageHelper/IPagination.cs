@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AuthApp.Utility.Entity
+namespace VCrisp.Utilities.PageHelper
 {
 	public interface IPagination : IEnumerable
 	{

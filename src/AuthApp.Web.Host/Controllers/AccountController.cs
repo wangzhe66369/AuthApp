@@ -1,8 +1,8 @@
-﻿using AuthApp.Authorization.Roles;
-using AuthApp.Authorization.Users;
-using AuthApp.Authorizations;
+﻿using AuthApp.Authorizations;
 using AuthApp.Configuration;
 using AuthApp.Domian;
+using AuthApp.Identity.Roles;
+using AuthApp.Identity.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -15,17 +15,20 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using VCrisp.Data;
+using VCrisp.Extensions.BaseType;
+using VCrisp.UI;
 
 namespace AuthApp.Web.Host.Controllers
 {
     [Route("auth")]
     [ApiController]
-    public class AuthenticateController : ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly JwtConfig _jwtConfig;
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-        public AuthenticateController(
+        public AccountController(
                 UserManager<User> userManager,
                 RoleManager<Role> roleManager,
                 IOptionsMonitor<JwtConfig> optionsMonitor)
@@ -41,24 +44,24 @@ namespace AuthApp.Web.Host.Controllers
         /// <param name="registerUser"></param>
         /// <returns></returns>
         [HttpPost("register", Name = nameof(AddUserAsync))]
-        public async Task<IActionResult> AddUserAsync(RegisterUser registerUser)
+        public async Task<AjaxResult> AddUserAsync(RegisterUser registerUser)
         {
             var user = new User
             {
                 Email = registerUser.Email,
                 UserName = registerUser.UserName,
-                BirthDate = registerUser.BirthDate
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, registerUser.Password);
             if (result.Succeeded)
             {
-                return Ok();
+                return new AjaxResult($"用户“{user.UserName}”添加成功"); ;
             }
             else
             {
-                ModelState.AddModelError("Error", result.Errors.FirstOrDefault()?.Description);
-                return BadRequest(ModelState);
+                return new AjaxResult(result.Errors.Select((IdentityError err) => err.Description).JoinAsString(), AjaxResultType.Error);
+                //ModelState.AddModelError("Error", result.Errors.FirstOrDefault()?.Description);
+                //return BadRequest(ModelState);
             }
         }
 

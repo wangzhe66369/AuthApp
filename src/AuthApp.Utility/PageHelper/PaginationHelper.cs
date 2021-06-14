@@ -1,14 +1,13 @@
-﻿using AuthApp.Utility.PageHelper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace AuthApp.Utility.Entity
+namespace VCrisp.Utilities.PageHelper
 {
-	public static class SortExtensions
+	public static class PaginationHelper
 	{
 		public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> datasource, string propertyName, SortDirection direction)
 		{
@@ -44,6 +43,20 @@ namespace AuthApp.Utility.Entity
 				Expression.Quote(expression)
 			});
 			return datasource.Provider.CreateQuery<T>(expression2);
+		}
+
+		public static IPagination<T> AsPagination<T>(this IEnumerable<T> source, int pageNumber)
+		{
+			return source.AsPagination(pageNumber, 20);
+		}
+
+		public static IPagination<T> AsPagination<T>(this IEnumerable<T> source, int pageNumber, int pageSize)
+		{
+			if (pageNumber < 1)
+			{
+				throw new ArgumentOutOfRangeException("pageNumber", "The page number should be greater than or equal to 1.");
+			}
+			return new LazyPagination<T>(source.AsQueryable<T>(), pageNumber, pageSize);
 		}
 	}
 }

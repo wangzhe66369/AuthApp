@@ -1,11 +1,10 @@
-﻿using AuthApp.Utility.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace AuthApp.Utility.PageHelper
+namespace VCrisp.Utilities.PageHelper
 {
 	/// <summary>
 	/// 分页ViewModel
@@ -13,8 +12,6 @@ namespace AuthApp.Utility.PageHelper
 	/// <typeparam name="T"></typeparam>
 	public class PagedViewModel<T>
 	{
-		//public ViewDataDictionary ViewData { get; set; }
-
 		public IQueryable<T> Query { get; set; }
 
 		public SortOptions SortOptions { get; set; }
@@ -44,19 +41,9 @@ namespace AuthApp.Utility.PageHelper
 			return this;
 		}
 
-		public PagedViewModel<T> AddFilter<TValue>(string key, TValue value, Expression<Func<T, bool>> predicate)
+		public PagedViewModel<T> AddFilter<TValue>(TValue value, Expression<Func<T, bool>> predicate)
 		{
 			this.ProcessQuery<TValue>(value, predicate);
-			//this.ViewData[key] = value;
-			return this;
-		}
-
-		public PagedViewModel<T> AddFilter<TValue>(string keyField, object value, Expression<Func<T, bool>> predicate, IQueryable<TValue> query, string textField)
-		{
-			this.ProcessQuery<object>(value, predicate);
-			//SelectList selectList = new SelectList(query, keyField, textField, value ?? -1);
-			//this.ViewData[keyField] = selectList;
-			//SelectListItem kk = new SelectListItem();
 			return this;
 		}
 
@@ -82,5 +69,15 @@ namespace AuthApp.Utility.PageHelper
 			}
 			this.Query = this.Query.Where(predicate);
 		}
-	}
+
+
+		public PageResult<TValue> ToPageData<TValue>(Func<T,TValue> p)
+        {
+			var totalRecordsCount = this.PagedList.TotalItems;
+			var totalPagesCount = (int)Math.Ceiling((double)((float)totalRecordsCount / (float)this.PageSize));
+			IEnumerable <TValue> data = this.PagedList.Select(p);
+			return new PageResult<TValue>(data, this.Page, totalRecordsCount, totalPagesCount);
+		}
+       
+    }
 }

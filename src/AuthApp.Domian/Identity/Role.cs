@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthApp.Authorization.Roles
+namespace AuthApp.Identity.Roles
 {
-    public class Role : IdentityRole
+    public class Role : IdentityRole<int>
     {
     }
 }

@@ -1,6 +1,4 @@
-﻿using AuthApp.Utility.Entity;
-using AuthApp.Utility.PageHelper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,43 +52,65 @@ namespace AuthApp.Web.Host.Controllers
         //    });
         //    return jqGridResponse;
         //}
-        [HttpGet]
-        public object Get()
-        {
-            //string sord, int page, int rows, string sidx
-            string sord = "";
-            int page = 1;
-            int rows = 10;
-            string sidx = "";
-            var jqGridResponse = new DataResponse<MaterialTypeDto> { PageIndex = page, PageSize = rows };
+        //[HttpGet]
+        //public object Get()
+        //{
+        //    //string sord, int page, int rows, string sidx
+        //    string sord = "";
+        //    int page = 9;
+        //    int rows = 5;
+        //    string sidx = "Id";
+        //    //var jqGridResponse = new DataResponse<MaterialTypeDto> { PageIndex = page, PageSize = rows };
 
-            IQueryable<MaterialType> data = MaterialTypeToResult.QueryList().AsQueryable();
+        //    IQueryable<MaterialType> data = MaterialTypeToResult.QueryList().AsQueryable();
+            
 
-            var pagedViewModel = new PagedViewModel<MaterialType>
-            {
-                Query = data,
-                SortOptions = new SortOptions() { Column = sidx, Direction = sord.Equals("asc") ? SortDirection.Ascending : SortDirection.Descending },
-                DefaultSortColumn = sidx,
-                Page = page,
-                PageSize = rows,
-            }
-            .Setup();
+        //    var pagedViewModel = new PagedViewModel<MaterialType>
+        //    {
+        //        Query = data,
+        //        SortOptions = new SortOptions() { Column = sidx, Direction = sord.Equals("asc") ? SortDirection.Ascending : SortDirection.Descending },
+        //        DefaultSortColumn = sidx,
+        //        Page = page,
+        //        PageSize = rows,
+        //    }.Setup();
 
-            jqGridResponse.TotalRecordsCount = pagedViewModel.PagedList.TotalItems;
+        //    PageResult<MaterialTypeDto> pageResult= pagedViewModel.ToPageData(m => new 
+        //    {
+        //        Id=m.Id,
+        //        Name = m.Name,
+        //        Age = m.Age,
+        //        lll="反反复复"
+        //    }).ToPageResult(data => data.Select(m => new MaterialTypeDto
+        //    {
+        //        Id = m.Id,
+        //        Name = m.lll,
+        //        Age = m.Age,
 
-            pagedViewModel.PagedList.ToList().ForEach(d =>
-            {
-                jqGridResponse.Records.Add(new ResultRecord<MaterialTypeDto>()
-                {
-                    Id = d.Id,
-                    Entity = new MaterialTypeDto()
-                    {
-                        Name = d.Name,
-                        Age = d.Age,
-                    }
-                });
-            });
-            return jqGridResponse;
-        }
+        //    }).ToArray());
+
+        //    //.Setup().AddFilterToPage(m => new MaterialTypeDto
+        //    //{
+        //    //        Name = m.Name,
+        //    //}
+        //    //);
+
+        //    //pagedViewModel.ToPageDat
+        //    //pagedViewModel.ToPageData();
+        //    //jqGridResponse.TotalRecordsCount = pagedViewModel.PagedList.TotalItems;
+
+        //    //pagedViewModel.PagedList.ToList().ForEach(d =>
+        //    //{
+        //    //    jqGridResponse.Records.Add(new ResultRecord<MaterialTypeDto>()
+        //    //    {
+        //    //        Id = d.Id,
+        //    //        Entity = new MaterialTypeDto()
+        //    //        {
+        //    //            Name = d.Name,
+        //    //            Age = d.Age,
+        //    //        }
+        //    //    });
+        //    //});
+        //    return pageResult;
+        //}
     }
 }

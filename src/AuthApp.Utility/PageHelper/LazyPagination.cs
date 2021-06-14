@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AuthApp.Utility.Entity
+namespace VCrisp.Utilities.PageHelper
 {
 	public class LazyPagination<T> : IPagination<T>, IPagination, IEnumerable<T>, IEnumerable
 	{

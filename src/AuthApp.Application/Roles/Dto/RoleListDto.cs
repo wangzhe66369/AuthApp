@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tomato.Roles.Dto
+namespace AuthApp.Roles.Dto
 {
     public class RoleListDto 
     {

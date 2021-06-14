@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -21,6 +20,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthApp.Application\AuthApp.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Authorization\" />
   </ItemGroup>
 
 </Project>
