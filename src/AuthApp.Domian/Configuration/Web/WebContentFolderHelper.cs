@@ -30,7 +30,7 @@ namespace AuthApp.Web
                 directoryInfo = directoryInfo.Parent;
             }
 
-            var webApiFolder = Path.Combine(directoryInfo.FullName, "src", "AuthApp.Api");
+            var webApiFolder = Path.Combine(directoryInfo.FullName, "src", "AuthApp.Web.Host");
             if (Directory.Exists(webApiFolder))
             {
                 return webApiFolder;

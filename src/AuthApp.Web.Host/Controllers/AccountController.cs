@@ -65,13 +65,13 @@ namespace AuthApp.Web.Host.Controllers
             }
         }
 
-        [HttpPost("token2", Name = nameof(GenerateTokenAsync))]
-        public async Task<IActionResult> GenerateTokenAsync(LoginUser loginUser)
+        [HttpPost("token", Name = nameof(GenerateTokenAsync))]
+        public async Task<AjaxResult> GenerateTokenAsync(LoginUser loginUser)
         {
             var user = await _userManager.FindByEmailAsync(loginUser.UserName);
             if (user == null)
             {
-                return Unauthorized();
+                return new AjaxResult("不存在用户", AjaxResultType.UnAuth);
             }
 
             var result = _userManager.PasswordHasher.VerifyHashedPassword(user,
@@ -79,8 +79,13 @@ namespace AuthApp.Web.Host.Controllers
                 loginUser.Password);
             if (result != PasswordVerificationResult.Success)
             {
-                return Unauthorized();
+                return new AjaxResult("密码错误", AjaxResultType.UnAuth);
             }
+
+            //if (result != PasswordVerificationResult.Success)
+            //{
+            //    return Unauthorized();
+            //}
 
             var userClaims = await _userManager.GetClaimsAsync(user);
             var userRoles = await _userManager.GetRolesAsync(user);
@@ -106,40 +111,19 @@ namespace AuthApp.Web.Host.Controllers
                 expires: DateTime.Now.AddMinutes(3),
                 signingCredentials: signCredential);
 
-            return Ok(new
-            {
-                token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
-                expiration = TimeZoneInfo.ConvertTimeFromUtc(jwtToken.ValidTo, TimeZoneInfo.Local)
-            });
-        }
+            var token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+            var expiration = TimeZoneInfo.ConvertTimeFromUtc(jwtToken.ValidTo, TimeZoneInfo.Local);
 
-        [HttpPost("token", Name = nameof(GenerateToken))]
-        public IActionResult GenerateToken(LoginUser loginUser)
-        {
-            if (loginUser.UserName != "demouser"
-                || loginUser.Password != "demopassword")
+            var tokenInfoViewModel = new TokenInfoViewModel()
             {
-                return Unauthorized();
-            }
-
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub,loginUser.UserName)
+                success = true,
+                token = token,
+                expiration = expiration,
+                token_type = "Bearer"
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
-            var signCredential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var jwtToken = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(3),
-                signingCredentials: signCredential);
-
-            return Ok(new
-            {
-                token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
-                expiration = TimeZoneInfo.ConvertTimeFromUtc(jwtToken.ValidTo, TimeZoneInfo.Local)
-            });
+            return new AjaxResult("获取成功", tokenInfoViewModel);
+            
         }
     }
 }

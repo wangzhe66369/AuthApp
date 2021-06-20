@@ -24,7 +24,7 @@ namespace AuthApp.Extensions
             //自动注入服务到依赖注入容器
             var p = services.RegisterAssemblyPublicNonGenericClasses(assembliesToScanService)//将获取到的程序集信息注册到我们的依赖注入容器中
              .Where(c => c.Name.EndsWith("Service"))
-            .AsPublicImplementedInterfaces(ServiceLifetime.Scoped);
+            .AsPublicImplementedInterfaces(ServiceLifetime.Transient);
         }
 
         public static void AddDIRepository(this IServiceCollection services)
@@ -38,7 +38,7 @@ namespace AuthApp.Extensions
             //自动注入服务到依赖注入容器
             var p1 = services.RegisterAssemblyPublicNonGenericClasses(assembliesToScanRepository)//将获取到的程序集信息注册到我们的依赖注入容器中
              .Where(c => c.Name.EndsWith("Repository"))
-            .AsPublicImplementedInterfaces(ServiceLifetime.Scoped);
+            .AsPublicImplementedInterfaces(ServiceLifetime.Transient);
         }
     }
 }

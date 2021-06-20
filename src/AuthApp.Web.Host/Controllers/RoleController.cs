@@ -25,16 +25,17 @@ namespace AuthApp.Web.Host.Controllers
         private readonly IRoleService _iRoleService;
         private readonly RoleManager<Role> _roleManager;
         private readonly IMapper _mapper;
-        public RoleController(IRoleService iRoleService)
+        public RoleController(IRoleService iRoleService, IMapper mapper)
         {
             _iRoleService = iRoleService;
+            _mapper = mapper;
         }
 
-        //// <summary>
+        /// <summary>
         /// 读取角色
         /// </summary>
         /// <returns>角色页列表</returns>
-        [HttpPost]
+        [HttpPost("ReadRole", Name = nameof(Read))]
         //[ModuleInfo]
         //[Description("读取")]
         public PageResult<RoleOutputDto> Read(PageRequest request)
@@ -64,7 +65,7 @@ namespace AuthApp.Web.Host.Controllers
         /// 读取角色节点
         /// </summary>
         /// <returns>角色节点列表</returns>
-        [HttpGet]
+        //[HttpGet]
         //[ModuleInfo]
         //[Description("读取节点")]
         //public RoleNode[] ReadNode()
@@ -103,7 +104,7 @@ namespace AuthApp.Web.Host.Controllers
         /// </summary>
         /// <param name="dtos">新增角色信息</param>
         /// <returns>JSON操作结果</returns>
-        [HttpPost]
+        [HttpPost("CreateRole", Name = nameof(Create))]
         //[ModuleInfo]
         //[DependOnFunction("Read")]
         //[UnitOfWork]
@@ -130,7 +131,7 @@ namespace AuthApp.Web.Host.Controllers
         /// </summary>
         /// <param name="dtos">更新角色信息</param>
         /// <returns>JSON操作结果</returns>
-        [HttpPost]
+        [HttpPost("UpdateRole", Name = nameof(Update))]
         //[ModuleInfo]
         //[DependOnFunction("Read")]
         //[UnitOfWork]
@@ -159,7 +160,7 @@ namespace AuthApp.Web.Host.Controllers
         /// </summary>
         /// <param name="ids">要删除的角色编号</param>
         /// <returns>JSON操作结果</returns>
-        [HttpPost]
+        [HttpPost("DeleteRole", Name = nameof(Delete))]
         //[ModuleInfo]
         //[DependOnFunction("Read")]
         //[UnitOfWork]

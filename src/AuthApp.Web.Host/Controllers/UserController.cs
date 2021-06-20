@@ -17,7 +17,7 @@ using VCrisp.Utilities.PageHelper;
 
 namespace AuthApp.Web.Host.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/User")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -38,10 +38,10 @@ namespace AuthApp.Web.Host.Controllers
         /// </summary>
         /// <returns>用户列表信息</returns>
         [HttpPost]
+        [Route("ReadUser")]
         //[ModuleInfo]
         //[Description("读取")]
-        [HttpPost]
-        public  PageResult<UserOutputDto> Read(PageRequest request)
+        public PageResult<UserOutputDto> Read(PageRequest request)
         {
             var pagedViewModel = new PagedViewModel<User>
             {
@@ -95,6 +95,7 @@ namespace AuthApp.Web.Host.Controllers
         /// <param name="dtos">用户信息</param>
         /// <returns>JSON操作结果</returns>
         [HttpPost]
+        [Route("CreateUser")]
         //[ModuleInfo]
         //[DependOnFunction("Read")]
         //[UnitOfWork]
@@ -122,7 +123,8 @@ namespace AuthApp.Web.Host.Controllers
         /// </summary>
         /// <param name="dtos">用户信息</param>
         /// <returns>JSON操作结果</returns>
-        [HttpPost]
+        [HttpPut]
+        [Route("UpdateUser")]
         //[ModuleInfo]
         //[DependOnFunction("Read")]
         //[UnitOfWork]
@@ -134,7 +136,7 @@ namespace AuthApp.Web.Host.Controllers
             foreach (var dto in dtos)
             {
                 User user = await _userManager.FindByIdAsync(dto.Id.ToString());
-                user = _mapper.Map<UserInputDto,User>(dto);
+                user = _mapper.Map<UserInputDto, User>(dto);
                 IdentityResult result = await _userManager.UpdateAsync(user);
                 if (!result.Succeeded)
                 {
@@ -150,7 +152,8 @@ namespace AuthApp.Web.Host.Controllers
         /// </summary>
         /// <param name="ids">用户信息</param>
         /// <returns>JSON操作结果</returns>
-        [HttpPost]
+        [HttpDelete]
+        [Route("DeleteUser")]
         //[ModuleInfo]
         //[DependOnFunction("Read")]
         //[UnitOfWork]

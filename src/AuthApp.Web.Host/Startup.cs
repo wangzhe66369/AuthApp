@@ -74,8 +74,8 @@ namespace AuthApp
                 options.Password.RequireUppercase = false;
             });
             services.AddIdentity<User, Role>()//AddIdentity方法会向容器添加UserManager、RoleManager，以及它们所依赖的服务，
-                .AddErrorDescriber<CustomIdentityErrorDescriber>();
-                //.AddEntityFrameworkStores<AppDbContext>();
+                .AddErrorDescriber<CustomIdentityErrorDescriber>()
+                .AddEntityFrameworkStores<AppDbContext>();
 
             
             services.AddAuthentication_JWTSetup();
