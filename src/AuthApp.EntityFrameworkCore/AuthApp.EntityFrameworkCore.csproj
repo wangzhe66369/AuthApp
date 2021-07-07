@@ -20,10 +20,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthApp.Application\AuthApp.Application.csproj" />
+    <ProjectReference Include="..\VCrisp.Infrastructure.Core\VCrisp.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\VCrisp.Utilities\VCrisp.Utilities.csproj" />
+    <ProjectReference Include="..\VCrisp\VCrisp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Authorization\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

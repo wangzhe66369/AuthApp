@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.Web.Host", "src\AuthApp.Web.Host\AuthApp.Web.Host.csproj", "{1B733402-6922-479C-BA10-1D31A8BCF0E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.Api", "src\AuthApp.Api\AuthApp.Api.csproj", "{1B733402-6922-479C-BA10-1D31A8BCF0E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.EntityFrameworkCore", "src\AuthApp.EntityFrameworkCore\AuthApp.EntityFrameworkCore.csproj", "{1AA4C6DA-9542-4ECD-85F9-5CDB21BB86D2}"
 EndProject
@@ -13,11 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D5DEA45-C54
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.Domian", "src\AuthApp.Domian\AuthApp.Domian.csproj", "{66D95319-23BD-4DDF-9769-8C285FE14DC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VCrisp", "src\AuthApp.Common\VCrisp.csproj", "{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VCrisp", "src\VCrisp\VCrisp.csproj", "{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VCrisp.Utilities", "src\AuthApp.Utility\VCrisp.Utilities.csproj", "{11C2CC5F-2AA9-46D0-9F19-2F31243F4C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VCrisp.Utilities", "src\VCrisp.Utilities\VCrisp.Utilities.csproj", "{11C2CC5F-2AA9-46D0-9F19-2F31243F4C89}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VCrisp.Infrastructure.Core", "src\VCrisp.Infrastructure.Core\VCrisp.Infrastructure.Core.csproj", "{A29F0AC5-B8D2-446A-B495-B1836548F5E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VCrisp.Domain.Abstractions", "src\VCrisp.Domain.Abstractions\VCrisp.Domain.Abstractions.csproj", "{55A3D41F-58D6-4D59-9C95-5452556AB891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCrisp.Web", "VCrisp.Web\VCrisp.Web.csproj", "{6A8B5C9D-1C4A-4492-A0C8-198E9CC4FABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +55,18 @@ Global
 		{11C2CC5F-2AA9-46D0-9F19-2F31243F4C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11C2CC5F-2AA9-46D0-9F19-2F31243F4C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11C2CC5F-2AA9-46D0-9F19-2F31243F4C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29F0AC5-B8D2-446A-B495-B1836548F5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29F0AC5-B8D2-446A-B495-B1836548F5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29F0AC5-B8D2-446A-B495-B1836548F5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29F0AC5-B8D2-446A-B495-B1836548F5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A3D41F-58D6-4D59-9C95-5452556AB891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A3D41F-58D6-4D59-9C95-5452556AB891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A3D41F-58D6-4D59-9C95-5452556AB891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A3D41F-58D6-4D59-9C95-5452556AB891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A8B5C9D-1C4A-4492-A0C8-198E9CC4FABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8B5C9D-1C4A-4492-A0C8-198E9CC4FABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8B5C9D-1C4A-4492-A0C8-198E9CC4FABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8B5C9D-1C4A-4492-A0C8-198E9CC4FABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +79,9 @@ Global
 		{94D5F86B-7DA1-4ABF-ADE0-74E2E4CE80FD} = {5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}
 		{11C2CC5F-2AA9-46D0-9F19-2F31243F4C89} = {5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}
 		{5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0} = {0D5DEA45-C54D-4141-A599-CB6A7321D46E}
+		{A29F0AC5-B8D2-446A-B495-B1836548F5E0} = {5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}
+		{55A3D41F-58D6-4D59-9C95-5452556AB891} = {5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}
+		{6A8B5C9D-1C4A-4492-A0C8-198E9CC4FABC} = {5F9DB2EE-05C3-4E51-B779-7EA5426FDAF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34981E13-D696-4460-ADB5-9E2ADA1E6074}

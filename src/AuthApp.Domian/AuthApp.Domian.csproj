@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VCrisp.Domain.Abstractions\VCrisp.Domain.Abstractions.csproj" />
+    <ProjectReference Include="..\VCrisp.Infrastructure.Core\VCrisp.Infrastructure.Core.csproj" />
+  </ItemGroup>
+
 </Project>

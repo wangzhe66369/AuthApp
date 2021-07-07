@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Users\Dtos\UserOutputDto.cs~RF1cc0113f.TMP" />
+    <None Remove="Identity\Users\Dtos\UserOutputDto.cs~RF1cc0113f.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -13,8 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AuthApp.Common\VCrisp.csproj" />
     <ProjectReference Include="..\AuthApp.Domian\AuthApp.Domian.csproj" />
+    <ProjectReference Include="..\VCrisp.Utilities\VCrisp.Utilities.csproj" />
+    <ProjectReference Include="..\VCrisp\VCrisp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Auth\" />
   </ItemGroup>
 
 </Project>

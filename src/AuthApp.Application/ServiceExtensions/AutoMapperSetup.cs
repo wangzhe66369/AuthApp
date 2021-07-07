@@ -1,5 +1,4 @@
-﻿using AuthApp.Authors.Dto;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 

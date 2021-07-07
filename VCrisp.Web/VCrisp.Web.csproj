@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.7" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\AuthApp.Domian\AuthApp.Domian.csproj" />
+    <ProjectReference Include="..\src\AuthApp.EntityFrameworkCore\AuthApp.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\src\VCrisp.Utilities\VCrisp.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
